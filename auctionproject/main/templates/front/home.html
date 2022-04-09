@@ -1,1 +1,48 @@
-this is home page
+{% extends 'front/master.html' %}
+{% load staticfiles %}
+
+{% block headsection %}
+<link rel="stylesheet" href="{% static 'front/css/sidebar.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+	<div class="col-4">
+		<div class="sidebar">
+			<div class="col-md-9">
+				<label class="checkbox-inline" for="example-inline-checkbox1">
+					<input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> Electronics
+				</label>
+				<label class="checkbox-inline" for="example-inline-checkbox1">
+					<input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> Fashion
+				</label>
+				<label class="checkbox-inline" for="example-inline-checkbox2">
+					<input type="checkbox" id="example-inline-checkbox2" name="example-inline-checkbox2" value="option2"> Health and Beauty
+				</label>
+				<label class="checkbox-inline" for="example-inline-checkbox3">
+					<input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Home and Garden
+				</label>
+				<label class="checkbox-inline" for="example-inline-checkbox3">
+					<input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Sports
+				</label>
+				<label class="checkbox-inline" for="example-inline-checkbox3">
+					<input type="checkbox" id="example-inline-checkbox3" name="example-inline-checkbox3" value="option3"> Arts
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="col-8">
+		<!--Container Main start-->
+		<div class="height-100 bg-light">
+			<h4>Main Components</h4>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block scriptblock %}
+<script src="{% static 'front/js/sidebar.js' %}"></script>
+{% endblock %}

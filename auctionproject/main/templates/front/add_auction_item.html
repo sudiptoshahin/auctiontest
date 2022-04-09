@@ -1,0 +1,121 @@
+{% extends 'front/master.html' %}
+{% load staticfiles %}
+
+{% block headsection %}
+        <!-- Stylesheets -->
+        <!-- Bootstrap is included in its original form, unaltered -->
+        <link rel="stylesheet" href="{% static 'back/css/bootstrap.min.css' %}">
+        <!-- bootstrap 4/5 -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+        <!-- Related styles of various icon packs and plugins -->
+        <link rel="stylesheet" href="{% static 'back/css/plugins.css' %}">
+
+        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
+        <link rel="stylesheet" href="{% static 'back/css/main.css' %}">
+        <style>
+            body {
+                background-color: white;
+            }
+        </style>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Basic Form Elements Block -->
+        <div class="block">
+            <!-- Basic Form Elements Title -->
+            <div class="block-title">
+                <h2><strong>Add</strong> Auction item</h2>
+            </div>
+            <!-- END Form Elements Title -->
+
+            <!-- Basic Form Elements Content -->
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-select select-chosen" id="auction_cat" name="auction_cat" aria-label="Default select example" name="example-chosen" style="width: 100%;">  
+                                <option selected>Choose a Category..</option>
+                                <option value="cat1">Cat 1</option>
+                                <option value="cat2">Cat 2</option>
+                                <option value="cat3">Cat 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <textarea type="text" id="auction_desc" name="auction_desc" rows="5" class="form-control" placeholder="Auction item description"></textarea>
+                    </div>
+                </div>
+                <div class="from-group mb-5">
+                    <div class="col-md-12">
+                        <input type="text" name="min_bid_Price" id="min_bid_Price", class="form-control", placeholder="Your price">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="example-daterange1">How long you want run your auction</label>
+                    <div class="col-md-8">
+                        <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
+                            <input type="text" id="start_date" name="start_date" class="form-control text-center" placeholder="From">
+                            <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
+                            <input type="text" id="end_date" name="end_date" class="form-control text-center" placeholder="To">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="file" class="form-control" id="item_photo" name="item_photo">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <select class="form-select select-chosen" id="select_timezone" name="select_timezone" aria-label="Default select example" name="example-chosen" style="width: 100%;">  
+                            <option selected>Select timezone</option>
+                            <option value="cat1">Cat 1</option>
+                            <option value="cat2">Cat 2</option>
+                            <option value="cat3">Cat 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Submit</button>
+                    </div>
+                </div>
+                
+
+
+            </form>
+            <!-- END Basic Form Elements Content -->
+        </div>
+        <!-- END Basic Form Elements Block -->
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block scriptblock %}
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="{% static 'back/js/pages/formsGeneral.js' %}"></script>
+    <script>$(function(){ FormsGeneral.init(); });</script>
+
+    <!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
+    <script src="{% static 'back/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'back/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'back/js/plugins.js' %}"></script>
+    <script src="{% static 'back/js/app.js' %}"></script>
+{% endblock %}
