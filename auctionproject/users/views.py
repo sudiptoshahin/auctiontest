@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
+from auction.models import AuctionItem
 # Create your views here.
 
 
@@ -26,10 +27,12 @@ def register(request):
     return render(request, 'front/registration.html', context)
 
 
-def profile(request):
+def dashboard(request):
+
+    items = AuctionItem.objects.all()
 
     context = {
-
+        'items': items,
     }
 
-    return render(request, 'front/profile.html', context)
+    return render(request, 'back/user_dashboard.html', context)

@@ -24,8 +24,9 @@ urlpatterns = [
     # auth-sec
     url(r'^register/$', user_views.register, name='register'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='front/login.html'), name='login'),
-    url(r'^profile/$', user_views.profile, name='profile'),
-    # url(r'^logout/', auth_views.LogoutView.as_view('front/logout.html'), name='logout'),
+    # url(r'^profile/$', user_views.profile, name='profile'),
+    url(r'^dashboard/$', user_views.dashboard, name='user_dashboard'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(template_name='front/home.html'), name='logout'),
 
 
 ]

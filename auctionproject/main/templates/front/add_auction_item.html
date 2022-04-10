@@ -1,25 +1,5 @@
-{% extends 'front/master.html' %}
+{% extends 'back/user_dashboard_master.html' %}
 {% load staticfiles %}
-
-{% block headsection %}
-        <!-- Stylesheets -->
-        <!-- Bootstrap is included in its original form, unaltered -->
-        <link rel="stylesheet" href="{% static 'back/css/bootstrap.min.css' %}">
-        <!-- bootstrap 4/5 -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-
-        <!-- Related styles of various icon packs and plugins -->
-        <link rel="stylesheet" href="{% static 'back/css/plugins.css' %}">
-
-        <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
-        <link rel="stylesheet" href="{% static 'back/css/main.css' %}">
-        <style>
-            body {
-                background-color: white;
-            }
-        </style>
-{% endblock %}
-
 {% block content %}
 
 <div class="row">
@@ -67,10 +47,10 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="example-daterange1">How long you want run your auction</label>
                     <div class="col-md-8">
-                        <div class="input-group input-daterange" data-date-format="mm/dd/yyyy">
-                            <input type="text" id="start_date" name="start_date" class="form-control text-center" placeholder="From">
+                        <div class="input-group input-daterange" data-date-format="dd/mm/yyyy">
+                            <input type="text" id="start_date" name="start_date" class="form-control text-center" placeholder="Start">
                             <span class="input-group-addon"><i class="fa fa-angle-right"></i></span>
-                            <input type="text" id="end_date" name="end_date" class="form-control text-center" placeholder="To">
+                            <input type="text" id="end_date" name="end_date" class="form-control text-center" placeholder="End">
                         </div>
                     </div>
                 </div>
