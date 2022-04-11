@@ -1,9 +1,9 @@
-from multiprocessing import context
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from auction.models import AuctionItem
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -26,10 +26,11 @@ def register(request):
 
     return render(request, 'front/registration.html', context)
 
-
+@login_required
 def dashboard(request):
 
-    items = AuctionItem.objects.all()
+    user = request.user
+    items = AuctionItem.objects.filter(owner=user)
 
     context = {
         'items': items,

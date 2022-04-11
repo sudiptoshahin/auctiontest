@@ -12,6 +12,16 @@ from django.core.files import File
 
 # Create your views here.
 
+def home(request):
+
+    items = AuctionItem.objects.all()
+
+    context = {
+        'items': items,
+    }
+
+    return render(request, 'front/auction_home.html', context)
+
 @login_required
 def add_item(request):
 

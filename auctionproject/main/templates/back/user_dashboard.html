@@ -3,6 +3,17 @@
 
 {% block content %}
 
-<h1>Hello World</h1>
+{% for item in auction_items %}
+	<div class="row">
+		<div class="col">
+			<div class="card" style="width: 18rem;">
+				<img src="{{ item.photourl }}" height="200px" width="200px" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ item.name}}</h5>
+					</div>
+			</div>
+		</div>
+	</div>
+{% endfor %}
 
 {% endblock %}
